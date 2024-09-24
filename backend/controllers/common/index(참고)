@@ -1,0 +1,75 @@
+const { CreateController, CreateNoWrapController } = require('@utils/express');
+const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
+const { Files, Vdeo, Partners, News, Events, InfoStore, Notice, Faq, GloryList, BannerList, PopupList,WriterList } = require('@models');
+const sequelize = require('sequelize');
+const { NodeHttpHandler } = require('@aws-sdk/node-http-handler');
+
+const httpHandler = new NodeHttpHandler({
+    connectionTimeout: 1000,
+    socketTimeout: 5000,
+    maxSockets: 200, // 최대 소켓 수를 증가시킵니다.
+    socketAcquisitionWarningTimeout: 10000 // 경고 발생 전 대기 시간을 조정합니다.
+});
+const s3 = new S3Client({
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY,
+        secretAccessKey: process.env.AWS_SECRET_KEY
+    },
+    region: process.env.AWS_REGIONl,
+    requestHandler: httpHandler,
+});
+
+module.exports = {
+    getImg: CreateController('getImg', async ({ req, res }) => { //s3 이미지 가져오는 예제
+        try {
+            if (req.params && req.params.key) {
+                const key = req.params.key; // URL 매개변수에서 이미지 키를 가져옴
+                const bucket = process.env.AWS_DEFAULT_BUCKET; // S3 버킷 이름
+                const getObjectParams = { Bucket: bucket, Key: key };
+    
+                // Range 헤더가 있을 경우 처리
+                if (req.headers.range) {
+                    const range = req.headers.range;
+                    const bytesRange = range.replace(/bytes=/, "").split("-");
+                    const start = parseInt(bytesRange[0], 10);
+                    const end = bytesRange[1] ? parseInt(bytesRange[1], 10) : undefined;
+    
+                    if (start !== undefined || end !== undefined) {
+                        getObjectParams.Range = range; // S3 Range 요청 설정
+                    }
+                }
+    
+                const { Body, ContentRange, ContentLength, ContentType } = await s3.send(new GetObjectCommand(getObjectParams));
+    
+                res.setHeader("Content-Type", ContentType || "application/octet-stream");
+                if (ContentRange) {
+                    res.status(206); // Partial Content
+                    res.setHeader("Content-Range", ContentRange);
+                    res.setHeader("Accept-Ranges", "bytes");
+                    res.setHeader("Content-Length", ContentLength);
+                } else {
+                    res.status(200); // OK
+                    res.setHeader("Content-Length", ContentLength);
+                }
+    
+                // 스트림으로 응답에 파이프하고, 종료 및 오류 처리
+                Body.on('error', error => {
+                    console.error("Stream error:", error);
+                    res.status(500).send("Server error during streaming");
+                }).on('end', () => {
+                    console.log("Streaming ended");
+                }).pipe(res).on('finish', () => {
+                    console.log("Successfully streamed");
+                });
+    
+            } else {
+                res.status(404).send("Not Found");
+            }
+    
+        } catch (e) {
+            console.error("ERROR Function[ getImg ]", e);
+            res.status(500).send(e.message);
+        }
+    })
+    
+}

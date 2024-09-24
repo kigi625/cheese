@@ -1,0 +1,1044 @@
+// @import "@/assets/scss/mixin.scss";
+// @import "@/assets/scss/variable.scss";
+
+// common
+* {
+  font-weight: 400;
+  letter-spacing: -0.015rem;
+}
+
+// Typography
+h1.h1 {
+  font-size: $px28;
+  font-weight: 700;
+  line-height: $px36; /* 128.571% */
+  @include tablet {
+    font-size: $px36;
+    line-height: $px40; /* 111.111% */
+  }
+}
+h2.h2 {
+  font-size: $px22;
+  font-weight: 600;
+  line-height: $px30; /* 136.364% */
+  @include tablet {
+    font-size: $px28;
+    line-height: $px40; /* 142.857% */
+  }
+}
+h3.h3 {
+  font-size: $px19;
+  font-weight: 700;
+  line-height: $px28; /* 147.368% */
+  @include tablet {
+    font-size: $px22;
+    line-height: $px33; /* 150% */
+  }
+}
+h4.h4 {
+  font-size: $px18;
+  font-weight: 500;
+  line-height: $px24; /* 133.333% */
+  color: $gray-500;
+  @include tablet {
+    font-size: $px19;
+    line-height: $px28; /* 147.368% */
+  }
+}
+h5.h5 {
+  font-size: $px18;
+  font-weight: 600;
+  line-height: $px24; /* 133.333% */
+  @include tablet {
+    font-size: $px19;
+    line-height: $px28; /* 147.368% */
+  }
+}
+h6.h6 {
+  font-size: $px17;
+  font-weight: 600;
+  line-height: $px20; /* 117.647% */
+}
+p.bold {
+  font-weight: 700;
+}
+p.semibold {
+  font-weight: 600;
+}
+p.medium {
+  font-weight: 500;
+}
+p.regular {
+  font-weight: 400;
+}
+p.light {
+  font-weight: 300;
+}
+span.caption {
+  font-size: $px14;
+  color: $gray-500;
+  font-weight: 400;
+  line-height: $px20;
+}
+
+// Color
+
+// Button
+button.btn {
+  width: max-content;
+  border-radius: $px4;
+  cursor: pointer;
+  font-weight: 500;
+  min-width: fit-content;
+  font-size: $px16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  // 크기
+  &.btn-xs {
+    gap: $px1;
+    font-size: $px14;
+    padding: $px2 $px6;
+    height: $px24;
+    span {
+      font-size: $px16;
+    }
+  }
+  &.btn-sm {
+    gap: $px2;
+    font-size: $px14;
+    padding: $px6 $px8;
+    height: $px32;
+    span {
+      font-size: $px18;
+    }
+  }
+  &.btn-md {
+    gap: $px6;
+    padding: $px10 $px12;
+    height: $px40;
+    span {
+      font-size: $px20;
+    }
+  }
+  &.btn-lg {
+    gap: $px6;
+    padding: $px11 $px16;
+    height: $px48;
+    font-size: $px17;
+    border-radius: $px6;
+    span {
+      font-size: $px24;
+    }
+  }
+  &.btn-fill {
+    gap: $px6;
+    width: 100%;
+    padding: $px11 $px16;
+    height: $px48;
+    font-size: $px17;
+    border-radius: $px6;
+    span {
+      font-size: $px24;
+    }
+  }
+  // 색상
+  &.btn-outline {
+    background-color: white;
+    &.btn-muted {
+      border: 1px solid $gray-200;
+      color: $gray-500;
+      &:hover {
+        background-color: $gray-50;
+      }
+    }
+    &.btn-confirm {
+      border: 1px solid $confirm;
+      color: $confirm;
+      &:hover {
+        background-color: $confirm-50;
+        color: $confirm;
+      }
+    }
+    &.btn-available {
+      border: 1px solid $available;
+      color: $available;
+      &:hover {
+        background-color: $available-50;
+        color: $available;
+      }
+    }
+    &.btn-warning {
+      border: 1px solid $warning;
+      color: $warning;
+      &:hover {
+        background-color: $warning-50;
+        color: $warning;
+      }
+    }
+    &.btn-error {
+      border: 1px solid $error;
+      color: $error;
+      &:hover {
+        background-color: $error-50;
+        color: $error;
+      }
+    }
+    &.btn-help {
+      border: 1px solid $help;
+      color: $help;
+      &:hover {
+        background-color: $help-50;
+        color: $help;
+      }
+    }
+    &:disabled {
+      border: 1px solid $gray-200;
+      color: $gray-400;
+    }
+  }
+  &.btn-solid {
+    &.btn-confirm {
+      border: 1px solid $confirm-500;
+      color: white;
+      background-color: $confirm;
+      &:hover {
+        background-color: $confirm-300;
+      }
+    }
+    &.btn-available {
+      border: 1px solid $available-500;
+      color: white;
+      background-color: $available;
+      &:hover {
+        background-color: $available-300;
+      }
+    }
+    &.btn-warning {
+      border: 1px solid $warning-500;
+      color: white;
+      background-color: $warning;
+      &:hover {
+        background-color: $warning-300;
+      }
+    }
+    &.btn-error {
+      border: 1px solid $error-500;
+      color: white;
+      background-color: $error;
+      &:hover {
+        background-color: $error-300;
+      }
+    }
+    &.btn-help {
+      border: 1px solid $help-500;
+      color: white;
+      background-color: $help;
+      &:hover {
+        background-color: $help-300;
+      }
+    }
+    &:disabled {
+      border: 1px solid $gray-200;
+      background-color: $gray-200;
+      color: $gray-400;
+    }
+  }
+}
+
+// Form
+div.form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $px24;
+  // 라벨과 모든 엘리멘츠
+  .form__item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $px4;
+    > label {
+      font-size: $px14;
+      font-weight: 600;
+      color: $gray-500;
+    }
+    // 인풋 밑의 설명 텍스트
+    > span {
+      font-size: $px14;
+      color: $gray-500;
+      &.error {
+        color: $error;
+      }
+      &.available {
+        color: $available;
+      }
+    }
+    // 인풋, 셀렉트 박스, 텍스트에리어 등
+    .form__data {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: $px8;
+      // 인풋, 버튼, 셀렉트 박스 등
+      .form__input {
+        display: flex;
+        gap: $px8;
+        &.error {
+          input {
+            outline: 2px solid $error;
+            outline-offset: -2px;
+            &:focus {
+              outline: 2px solid $error;
+              outline-offset: -2px;
+            }
+          }
+        }
+        p,
+        input {
+          width: 100%;
+          outline: none;
+          border: 1px solid $gray-200;
+          background-color: white;
+          border-radius: $px4;
+          font-size: $px16;
+          font-weight: 400;
+          &::placeholder {
+            color: $gray-400;
+          }
+          &:disabled {
+            background-color: $gray-100;
+            color: $gray-400;
+            pointer-events: none;
+          }
+          &:focus {
+            outline: 2px solid $confirm;
+            color: $black;
+            outline-offset: -2px;
+          }
+        }
+        textarea {
+          width: 100%;
+          box-sizing: border-box;
+          flex: 1;
+          outline: none;
+          border: 1px solid $gray-200;
+          background-color: white;
+          border-radius: $px4;
+          font-size: $px16;
+          font-family: "Pretendard Variable", Pretendard, -apple-system,
+            BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+            "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+            "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+          color: $black;
+          &::placeholder {
+            color: $gray-400;
+          }
+          &:disabled {
+            background-color: $gray-100;
+            color: $gray-400;
+            pointer-events: none;
+          }
+          &:focus {
+            outline: 2px solid $confirm;
+            color: $black;
+            outline-offset: -2px;
+          }
+        }
+      }
+    }
+  }
+  &.form-sm {
+    input,
+    textarea {
+      font-size: $px14 !important;
+    }
+    input {
+      padding: $px6 $px12;
+      height: $px32;
+    }
+    textarea {
+      padding: $px12;
+    }
+  }
+  &.form-md {
+    input {
+      padding: $px10 $px20;
+      height: $px40;
+    }
+    textarea {
+      padding: $px14 $px20;
+    }
+  }
+  &.form-lg {
+    input,
+    textarea {
+      font-size: $px17 !important;
+      border-radius: $px6;
+    }
+    input {
+      padding: $px11 $px24;
+      height: $px48;
+    }
+    textarea {
+      padding: $px18 $px24;
+    }
+  }
+}
+
+// Select
+div.select {
+  position: relative; /* 부모 요소를 relative로 설정합니다. */
+  min-width: fit-content;
+  select {
+    width: fit-content;
+    background-color: white;
+    width: 100%;
+    outline: none;
+    -webkit-appearance: none; /* 기본적인 스타일링을 제거합니다. */
+    -moz-appearance: none;
+    appearance: none;
+    z-index: 1; /* select 요소를 화살표 위로 올립니다. */
+    outline: none;
+    border: 1px solid $gray-200;
+    background-color: white;
+    border-radius: $px4;
+    // font-weight: 400;
+    &:disabled {
+      background-color: $gray-100;
+      color: $gray-400;
+      pointer-events: none;
+    }
+    &:focus {
+      outline: 2px solid $confirm;
+      color: $black;
+      outline-offset: -2px;
+    }
+  }
+  span {
+    position: absolute; /* 아이콘을 셀렉트 박스 위에 겹쳐서 표시합니다. */
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* 아이콘에 이벤트를 적용하지 않습니다. */
+    z-index: 2; /* 아이콘을 select 요소 위로 올립니다. */
+  }
+  &.select-sm {
+    select {
+      font-size: $px14;
+      padding: $px6 $px12;
+      height: $px32;
+      padding-right: $px36;
+    }
+    span {
+      font-size: $px18;
+      right: $px12;
+    }
+  }
+  &.select-md {
+    select {
+      font-size: $px16;
+      padding: $px10 $px20;
+      height: $px40;
+      padding-right: $px46;
+    }
+    span {
+      font-size: $px20;
+      right: $px20;
+    }
+  }
+  &.select-lg {
+    select {
+      font-size: $px17 !important;
+      padding: $px11 $px24;
+      height: $px48;
+      border-radius: $px6;
+      padding-right: $px54;
+    }
+    span {
+      font-size: $px24;
+      right: $px24;
+    }
+  }
+}
+
+// Datalist
+div.datalist {
+  width: 100%;
+  position: relative;
+  -webkit-appearance: none; /* 기본적인 스타일링을 제거합니다. */
+  input {
+    width: 100%;
+    background-color: white;
+    outline: none;
+    -webkit-appearance: none; /* 기본적인 스타일링을 제거합니다. */
+    -moz-appearance: none;
+    appearance: none;
+    z-index: 1; /* select 요소를 화살표 위로 올립니다. */
+    outline: none;
+    border: 1px solid $gray-200;
+    background-color: white;
+    border-radius: $px4;
+    font-size: $px16;
+    font-weight: 400;
+    &:disabled {
+      background-color: $gray-100;
+      color: $gray-400;
+      pointer-events: none;
+    }
+    &:focus {
+      outline: 2px solid $confirm;
+      color: $black;
+      outline-offset: -2px;
+    }
+    &::placeholder {
+      color: $gray-400;
+    }
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0;
+    }
+  }
+  span {
+    position: absolute;
+    right: $px16;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &.datalist-sm {
+    input {
+      font-size: $px14 !important;
+      padding: $px6 $px12;
+      height: $px32;
+    }
+    span {
+      font-size: $px18;
+      right: $px12;
+    }
+  }
+  &.datalist-md {
+    input {
+      padding: $px10 $px20;
+      height: $px40;
+    }
+    span {
+      font-size: $px20;
+      right: $px20;
+    }
+  }
+  &.datalist-lg {
+    input {
+      font-size: $px17 !important;
+      padding: $px11 $px24;
+      height: $px48;
+      border-radius: $px6;
+    }
+    span {
+      font-size: $px24;
+      right: $px24;
+    }
+  }
+}
+
+// Search
+div.search {
+  width: 100%;
+  border: 1px solid $gray-200;
+  border-radius: $px4;
+  display: flex;
+  justify-content: space-between;
+  input {
+    width: 100%;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: $gray-400;
+    }
+  }
+  button {
+    border: none;
+    background-color: transparent;
+    span {
+      color: $gray-400;
+    }
+  }
+  &.search-sm {
+    padding: $px6 $px12;
+    height: $px32;
+    input {
+      font-size: $px14 !important;
+    }
+    button {
+      span {
+        font-size: $px18;
+      }
+    }
+  }
+  &.search-md {
+    padding: $px10 $px20;
+    height: $px40;
+    input {
+      font-size: $px16 !important;
+    }
+    button {
+      span {
+        font-size: $px20;
+      }
+    }
+  }
+  &.search-lg {
+    padding: $px11 $px24;
+    height: $px48;
+    border-radius: $px6;
+    input {
+      font-size: $px17 !important;
+    }
+    button {
+      span {
+        font-size: $px24;
+      }
+    }
+  }
+}
+
+// Table
+div.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  overflow: hidden;
+  .table__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: $px12;
+    .btn {
+      margin-left: auto;
+      display: flex;
+      gap: $px6;
+      align-items: center;
+    }
+  }
+  .table__container {
+    width: 100%;
+    height: 100%;
+    display: block;
+    overflow: auto;
+    table {
+      width: 100%;
+      white-space: nowrap;
+      border-collapse: collapse;
+      border-spacing: 0;
+      overflow: hidden;
+      thead {
+        tr {
+          th {
+            padding: $px12 $px16;
+          }
+        }
+      }
+      tbody {
+        tr {
+          th {
+            padding: $px16 $px16;
+            text-align: left;
+          }
+          td {
+            padding: $px12 $px16;
+            font-size: $px16;
+            color: $black;
+            ul,
+            ol {
+              display: block;
+              margin-block-start: $px4;
+              margin-block-end: $px4;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              padding-inline-start: $px16;
+              li {
+                margin-bottom: $px6;
+                &:last-child {
+                  margin-bottom: 0;
+                }
+              }
+              &.important {
+                list-style-type: none;
+                padding-inline-start: $px16;
+                > li {
+                  &::marker {
+                    content: "※ "; /* &#8251; 문자를 넣습니다. */
+                  }
+                }
+              }
+              &.none {
+                list-style-type: none;
+              }
+            }
+            ul {
+              list-style-type: disc;
+            }
+            ol {
+              list-style-type: decimal;
+            }
+          }
+        }
+      }
+    }
+  }
+  .table__pagination {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $px4;
+    border: 1px solid $gray-200;
+    width: fit-content;
+    overflow: hidden;
+    margin: $px48 auto 0;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      min-width: 32px;
+      height: 32px;
+      border-right: 1px solid $gray-200;
+      color: $gray-500;
+      &:last-child {
+        border-right: none;
+      }
+      &:hover {
+        background-color: $gray-50;
+      }
+      &.active {
+        background-color: $black;
+        color: $white;
+        border: 1px solid $black;
+      }
+      &.hidden {
+        display: none;
+        // background-color: $gray-100;
+        // color: $gray-300;
+        // pointer-events: none;
+        // opacity: .5;
+      }
+    }
+  }
+  &.table-style_01 {
+    table {
+      border-top: 2px solid $black;
+      thead {
+        border-bottom: 1px solid $gray-200;
+        background-color: $gray-100;
+        tr {
+          th {
+            padding: $px16 $px32;
+            color: $gray-800;
+            white-space: nowrap;
+            vertical-align: middle;
+            text-align: left;
+          }
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid $gray-200;
+          th {
+            padding: $px16 $px32;
+            background-color: $gray-50;
+            text-align: left;
+            white-space: nowrap;
+            vertical-align: middle;
+          }
+          td {
+            padding: $px16 $px32;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+  &.table-style_02 {
+    table {
+      thead {
+        tr {
+          background-color: $gray-50;
+          border-bottom: 1px solid $gray-200;
+          th {
+            font-size: $px14;
+            font-weight: 600;
+            color: $gray-800;
+            text-align: left;
+            padding: $px8 $px16;
+          }
+        }
+      }
+      tbody {
+        tr {
+          border-bottom: 1px solid $gray-100;
+          td {
+            color: $gray-500;
+            font-size: $px14;
+            padding: $px11 $px16;
+          }
+        }
+      }
+    }
+  }
+  &.table-style_03 {
+    table {
+      thead {
+        background-color: $gray-50;
+        tr {
+          th {
+            border-top: 1px solid $gray-300;
+            border-bottom: 1px solid $gray-200;
+            padding: $px12 $px16;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            border-bottom: 1px solid $gray-100;
+            text-align: center;
+            color: $gray-500;
+            padding: $px12 $px16;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Badge
+span.badge {
+  width: max-content;
+  border-radius: $px24;
+  min-width: fit-content;
+  font-size: $px12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: $px1 $px4;
+  &.badge-outline {
+    background-color: white;
+    &.badge-muted {
+      border: 1px solid $gray-200;
+      color: $gray-500;
+    }
+    &.badge-confirm {
+      border: 1px solid $confirm;
+      color: $confirm;
+    }
+    &.badge-available {
+      border: 1px solid $available;
+      color: $available;
+    }
+    &.badge-warning {
+      border: 1px solid $warning;
+      color: $warning;
+    }
+    &.badge-error {
+      border: 1px solid $error;
+      color: $error;
+    }
+    &.badge-help {
+      border: 1px solid $help;
+      color: $help;
+    }
+  }
+  &.badge-solid {
+    &.badge-muted {
+      border: 1px solid $gray-100;
+      background-color: $gray-100;
+      color: $gray-500;
+    }
+    &.badge-confirm {
+      border: 1px solid $confirm-500;
+      color: white;
+      background-color: $confirm;
+    }
+    &.badge-available {
+      border: 1px solid $available-500;
+      color: white;
+      background-color: $available;
+    }
+    &.badge-warning {
+      border: 1px solid $warning-500;
+      color: white;
+      background-color: $warning;
+    }
+    &.badge-error {
+      border: 1px solid $error-500;
+      color: white;
+      background-color: $error;
+    }
+    &.badge-help {
+      border: 1px solid $help-500;
+      color: white;
+      background-color: $help;
+    }
+  }
+}
+
+// Checkbox
+div.checkbox {
+  display: flex;
+  align-items: center;
+  gap: $px6;
+  &:not(:last-child) {
+    margin-right: $px6;
+  }
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 16px;
+    height: 16px;
+    width: 16px;
+    border-radius: 3px;
+    border: 1px solid $gray-200;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    &:checked {
+      border: 1px solid $confirm;
+      &::before {
+        content: url("/images/icons/check.svg");
+        background-color: $confirm;
+        padding: 1px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 12px;
+        width: 12px;
+        height: 12px;
+        line-height: 12px;
+        text-align: center;
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $gray-100;
+      pointer-events: none;
+    }
+    &:disabled + label {
+      color: $gray-400;
+      pointer-events: none;
+    }
+  }
+  label {
+    cursor: pointer;
+    margin-top: 1px;
+  }
+}
+
+// Radio
+div.radio {
+  display: flex;
+  align-items: center;
+  gap: $px8;
+  &:not(:last-child) {
+    margin-right: $px8;
+  }
+  input[type="radio"] {
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    min-width: 16px;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    border: 1px solid $gray-200;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: white;
+    &:checked {
+      border: 1px solid $confirm;
+      &::before {
+        content: "";
+        background-color: $confirm;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        min-width: 10px;
+        width: 10px;
+        height: 10px;
+        text-align: center;
+        border-radius: 100%;
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      background-color: $gray-100;
+      pointer-events: none;
+    }
+    &:disabled + label {
+      color: $gray-400;
+      pointer-events: none;
+    }
+  }
+  label {
+    text-wrap: nowrap;
+  }
+}
+
+// Toggle
+.toggle {
+  display: inline-block;
+  position: relative;
+  width: $px40;
+  height: $px20;
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:checked + span {
+      background-color: $confirm;
+      &::before {
+        -webkit-transform: translateX(20px);
+        -ms-transform: translateX(20px);
+        transform: translateX(20px);
+      }
+    }
+  }
+  span {
+    opacity: 1 !important;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $zinc-200;
+    border-radius: $px24;
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    &::before {
+      position: absolute;
+      content: "";
+      width: $px16;
+      height: $px16;
+      border-radius: 100%;
+      left: 2px;
+      bottom: 2px;
+      background-color: $white;
+      -webkit-transition: all 0.25s ease;
+      -moz-transition: all 0.25s ease;
+      -ms-transition: all 0.25s ease;
+      -o-transition: all 0.25s ease;
+      transition: all 0.25s ease;
+    }
+  }
+}

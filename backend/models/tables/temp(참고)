@@ -1,0 +1,42 @@
+// const path = require('path');
+// const { DefineTable, belongsTo } = require('@utils/sequelize');
+/*
+* tableOptions 에 indexes 엔 
+{
+    unique: false,
+    fields: ['pc_file_id', 'mobile_file_id']
+}, 이와 같이 사용됨 만약 유니크인경우 filds가 따로 있으면 추가함
+appendColumn에서 text(medium) , text(long) , text 가 있음
+*
+*/
+
+// module.exports = (sequelize, DataTypes) => {
+//     const tableName = path.parse(__filename).name;
+//     const tableComment = '배너 관리';
+//     const tableOptions = {
+//         tableName,
+//         comment: tableComment,
+//         indexes: [
+//             {
+//                 unique: false,
+//                 fields: ['pc_file_id', 'mobile_file_id']
+//             },
+//         ]
+//     }
+//     const table = new DefineTable(sequelize, DataTypes, tableOptions)
+//         .appendColumn('id', 'integer')
+//         .appendColumn('url', 'string', { comment: '링크 주소' })
+//         .appendColumn('pc_file_id', 'integer', { comment: 'pc 배너 이미지 아이디' })
+//         .appendColumn('mobile_file_id', 'integer', { comment: 'mobile 배너 이미지 아이디' })
+//         .appendColumn('show_order', 'integer', { comment: '순번', defaultValue: 0 })
+//         .appendColumn('show', 'string', { comment: '노출여부(true,false)', defaultValue: '1' })
+//         .appendColumn('comment', 'text(long)', { comment: '본문 내용' })
+//         .done();
+
+//     table.associate = (models) => {
+//         table.belongsTo(models.files, { as: 'pcFile', foreignKey: 'pc_file_id', onDelete: 'cascade' });
+//         table.belongsTo(models.files, { as: 'mobileFile', foreignKey: 'mobile_file_id', onDelete: 'cascade' });
+//     }
+
+//     return table;
+// };

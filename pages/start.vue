@@ -45,6 +45,7 @@ definePageMeta({
             font-size: 20px;
             line-height: 150%;
             padding: 0 16px;
+            text-align: center;
             strong{
                 font-weight: 800;
             }
@@ -53,6 +54,7 @@ definePageMeta({
             line-height: 150%;
             font-size: 16px;
             padding: 0 16px;
+            text-align: center;
             span{
                 color: $primary;
                 font-weight: 800;

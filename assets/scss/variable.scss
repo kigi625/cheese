@@ -110,14 +110,16 @@ $radio-size: 20px;
 
 /// %%% Color Styles %%% //
 // Brand Color
-$primary: #000;
-$primary-50: #000;
+$primary: #EA5963;
+$primary-50: #FDF1F2;
 $primary-300: #000;
 $primary-400: #000;
 
-$secondary: #fff;
+$secondary: #4CC5F2;
 $secondary-50: #fff;
 $secondary-300: #fff;
+
+$tertiary: #65D234;
 
 // System Color
 $confirm: #0065FF;
@@ -406,3 +408,6 @@ $font-semibold: 600;
 $font-bold: 700;
 $font-extrabold: 800;
 $font-black: 900;
+
+
+$border_radius: 6px;

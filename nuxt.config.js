@@ -30,7 +30,8 @@ export default defineNuxtConfig({
     },
     css: [
         'primeicons/primeicons.css',
-        '@/assets/fonts/Pretendard.css',
+        // '@/assets/fonts/Pretendard.css',
+        '@/assets/fonts/NanumSquareRound.css',
         '@/assets/scss/common.scss',
         '@/assets/scss/reset.scss',
         '@/assets/css/tailwind.css',

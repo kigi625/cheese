@@ -3,21 +3,21 @@
     <div class="com_contain">
         <img src="~public/img/logo.png" alt="">
         
-        <div class="grade_box" v-if="gradeStatus==0">
+        <div class="grade_box" v-if="gradeStatus==1">
             <div class="wrap">
-                <p>0문제 맞혔어요! 👏🏻</p>
+                <p>{{score}}문제 맞혔어요! 👏🏻</p>
                 <h3>Lv.1 신입생</h3>
             </div>
             <img src="~public/img/grade1.png" alt="">
         </div>
-        <div class="grade_box" v-if="gradeStatus==1">
+        <div class="grade_box" v-if="gradeStatus==2">
             <div class="wrap">
-                <p>4문제 맞혔어요! 👏🏻</p>
+                <p>{{score}}문제 맞혔어요! 👏🏻</p>
                 <h3>Lv.2 재학생</h3>
             </div>
             <img src="~public/img/grade2.png" alt="">
         </div>
-        <div class="grade_box" v-if="gradeStatus==2">
+        <div class="grade_box" v-if="gradeStatus==3">
             <div class="wrap">
                 <p>문제를 모두 맞혔어요! 👏🏻</p>
                 <h3>Lv.3 졸업생</h3>
@@ -43,7 +43,14 @@ definePageMeta({
     name: "GradePage",
 })
 const gradeStatus = ref(0)
+const quizStore = useQuizStore();
+const score = ref(0);
 
+onMounted(() => {
+    score.value = quizStore.quizData.filter(Boolean).length;
+    //grade 는 score 가 0 ~ 2 는 1 , 3 ~ 4 는 2 , 5 는 3
+    gradeStatus.value = score.value < 3 ? 1 : score.value < 5 ? 2 : 3;
+})
 </script>
 
 <style lang="scss" scoped>

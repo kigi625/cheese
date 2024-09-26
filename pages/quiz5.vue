@@ -6,28 +6,28 @@
             다음 중 AOP 인증으로 보호하는 치즈와 <br> 그 원산지로 <strong>잘못</strong> 연결된 것은?
         </div>
         <div class="choice_box">
-            <button class="choice" @click="isChecked=0"
+            <button class="choice" @click="checkAnswer(0)"
             :class="{'check' : isChecked === 0}">
                 <i class="pi pi-check"></i>
                 <p>꽁떼(Comté) – 사부아(Savoie)</p>
             </button>
-            <button class="choice" @click="isChecked=1"
+            <button class="choice" @click="checkAnswer(1)"
             :class="{'check' : isChecked === 1}">
                 <i class="pi pi-check"></i>
                 <p>랑그르(Langres) – 샹파뉴(Champagne)</p>
             </button>
-            <button class="choice" @click="isChecked=2"
+            <button class="choice" @click="checkAnswer(2)"
             :class="{'check' : isChecked === 2}">
                 <i class="pi pi-check"></i>
                 <p>블루 도베르뉴(Bleu d’Auvergne)<br> - 오베르뉴(Auvergne)</p>
             </button>
-            <button class="choice" @click="isChecked=3"
+            <button class="choice" @click="checkAnswer(3)"
             :class="{'check' : isChecked === 3}">
                 <i class="pi pi-check"></i>
                 <p>리바로(Livarot) – 노르망디(Normandie)</p>
             </button>
         </div>
-        <button class="mainBtn1" @click="step=1">정답 확인</button>
+        <button class="mainBtn1" @click="nextQustion()">정답 확인</button>
     </div>
 
     <div class="com_contain" v-if="step==1">
@@ -72,7 +72,24 @@ definePageMeta({
 const step = ref(0); // 0: 문제, 1: 해설
 const isChecked = ref(null); // 문제 보기 체크
 const judgement = ref(true); // 문제 맞고 틀리고 판단
-
+const quizStore = useQuizStore();
+quizStore.setQuizData(4,false);
+const checkAnswer = (no) => {
+    isChecked.value = no;
+    if(no == 0){
+        judgement.value = true;
+    }else{
+        judgement.value = false;
+    }
+    quizStore.setQuizData(4,judgement.value);
+}
+const nextQustion = () => {
+    if(isChecked.value == null){
+        alert('정답을 선택해주세요');
+        return;
+    }
+    step.value = 1;
+}
 </script>
 
 <style lang="scss" scoped>

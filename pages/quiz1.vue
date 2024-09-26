@@ -6,24 +6,24 @@
             오랜 역사와 전통을 자랑하는 치즈의 나라인 프랑스에서 오늘날 추산되는 프랑스 치즈의 종류는 <strong>약 몇 가지</strong>일까?
         </div>
         <div class="choice_box">
-            <button class="choice" @click="isChecked=0"
+            <button class="choice" @click="checkAnswer(0)"
             :class="{'check' : isChecked === 0}">
                 <i class="pi pi-check"></i>100
             </button>
-            <button class="choice" @click="isChecked=1"
+            <button class="choice" @click="checkAnswer(1)"
             :class="{'check' : isChecked === 1}">
                 <i class="pi pi-check"></i>200
             </button>
-            <button class="choice" @click="isChecked=2"
+            <button class="choice" @click="checkAnswer(2)"
             :class="{'check' : isChecked === 2}">
                 <i class="pi pi-check"></i>400
             </button>
-            <button class="choice" @click="isChecked=3"
+            <button class="choice" @click="checkAnswer(3)"
             :class="{'check' : isChecked === 3}">
                 <i class="pi pi-check"></i>1000 +
             </button>
         </div>
-        <button class="mainBtn1" @click="step=1">정답 확인</button>
+        <button class="mainBtn1" @click="nextQustion()">정답 확인</button>
     </div>
 
     <div class="com_contain" v-if="step==1">
@@ -64,6 +64,25 @@ const step = ref(0); // 0: 문제, 1: 해설
 const isChecked = ref(null); // 문제 보기 체크
 const judgement = ref(false); // 문제 맞고 틀리고 판단
 
+const quizStore = useQuizStore();
+quizStore.setQuizData(0,false);
+
+const checkAnswer = (no) => {
+    isChecked.value = no;
+    if(no == 3){
+        judgement.value = true;
+    }else{
+        judgement.value = false;
+    }
+    quizStore.setQuizData(0,judgement.value);
+}
+const nextQustion = () => {
+    if(isChecked.value == null){
+        alert('정답을 선택해주세요');
+        return;
+    }
+    step.value = 1;
+}
 </script>
 
 <style lang="scss" scoped>

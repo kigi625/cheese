@@ -44,11 +44,11 @@
             가장 많이 먹는 나라로 알려져 있습니다. <br>
             오늘날 추산되는 프랑스 치즈의 종류는 <br>
             <strong>약 1,200개</strong>에 달합니다. <br>
-            다채로운 자연환경에서 풍요로운 역사와 
-            전통 속에서 만들어지는 프랑스 치즈는 
-            전 세계인의 사랑을 받습니다. 
-            프랑스 외에 이탈리아, 네덜란드, 
-            스페인 등에서도 치즈를 생산합니다.
+            다채로운 자연환경에서 풍요로운 역사와 <br>
+            전통 속에서 만들어지는 프랑스 치즈는 <br>
+            전 세계인의 사랑을 받습니다. <br>
+            프랑스 외에 이탈리아, 네덜란드, <br>
+            스페인 등에서도 치즈를 생산합니다.<br>
         </div>
         <img src="~public/img/quiz/1.jpg" alt="" class="explain_img">
         <button class="mainBtn1" @click="$router.push('/quiz2')">다음 문제<i class="pi pi-arrow-right"></i></button>

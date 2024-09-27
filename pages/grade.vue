@@ -27,7 +27,7 @@
 
         <div class="contents_box">
             <div class="contents">
-                🎉 <span class="ft_15">프랑스 치즈 학교 신입생</span>이 된 것을 축하합니다! <br>
+                🎉 <span class="ft_15">프랑스 치즈 학교 {{ gradeStatus === 1 ? '신입생' : gradeStatus === 2 ? '재학생' : '졸업생' }}</span>이 된 것을 축하합니다! <br>
                 🎁 첫 등교 기념으로 <span class="ft_16">미니 치즈 나이프</span>를 드립니다. <br>
                 🏫 학교에서 정통 치즈 수업과 다양한 창의적 체험활동에 <br> 참여하고 정통 치즈 모범생이 되어 볼까요?
             </div>

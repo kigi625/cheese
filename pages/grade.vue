@@ -50,6 +50,14 @@ onMounted(() => {
     score.value = quizStore.quizData.filter(Boolean).length;
     //grade 는 score 가 0 ~ 2 는 1 , 3 ~ 4 는 2 , 5 는 3
     gradeStatus.value = score.value < 3 ? 1 : score.value < 5 ? 2 : 3;
+    $fetch('/api/common/totalAnaly', {
+        method: 'POST',
+        body: JSON.stringify({grade: gradeStatus.value})
+    }).then((res)=>{
+        console.log(res);
+    }).catch((err)=>{
+        console.log(err);
+    })
 })
 </script>
 

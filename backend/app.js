@@ -15,7 +15,7 @@ dotenv.config({ path: path.resolve('.env') });
 /* ===================================== *
  * [Custom modules]
  * ===================================== */
-const csrfProtection = csurf({ cookie: true });
+//const csrfProtection = csurf({ cookie: true });
 
 require('./config');
 require('./config/pino');
@@ -27,8 +27,8 @@ const { promptConfirm } = require('./utils/common');
 /* ===================================== *
  * [Router]
  * ===================================== */
-const authHandler = require('./middlewares/authHandler');
-const userHandler = require('./middlewares/userHandler');
+//const authHandler = require('./middlewares/authHandler');
+//const userHandler = require('./middlewares/userHandler');
 const errorHandler = require('./middlewares/errorHandler');
 
 const commonRouter = require('./routes/common');
@@ -50,9 +50,9 @@ app.use(express.urlencoded({
 }));
 app.use(cookieParser());
 app.use(morgan);
-app.use(csrfProtection);
+//app.use(csrfProtection);
 
-app.use(authHandler);
+//app.use(authHandler);
 app.use('/common', commonRouter);
 //app.use('/user', userHandler, userRouter);
 

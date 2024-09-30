@@ -6,19 +6,19 @@
         <div class="result_box">
             <dl>
                 <dt>1. 신입생 </dt>
-                <dd>20 명</dd>
+                <dd>{{ result.data.result.beginer }} 명</dd>
             </dl>
             <dl>
                 <dt>2. 재학생 </dt>
-                <dd>20 명</dd>
+                <dd>{{ result.data.result.student }} 명</dd>
             </dl>
             <dl>
                 <dt>3. 졸업생 </dt>
-                <dd>20 명</dd>
+                <dd>{{ result.data.result.graduate }} 명</dd>
             </dl>
             <dl class="total">
                 <dt>총합</dt>
-                <dd>60 명</dd>
+                <dd>{{ total }} 명</dd>
             </dl>
         </div>
     </div>
@@ -31,6 +31,12 @@ definePageMeta({
     name: "ResultPage",
 })
 
+const { data: result } = await useFetch('/api/common/result');
+const total = ref(0);   
+
+onMounted(() => {
+    total.value = result.value.data.result.beginer + result.value.data.result.student + result.value.data.result.graduate;
+});
 </script>
 
 <style lang="scss" scoped>

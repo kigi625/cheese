@@ -1,4 +1,3 @@
-import {nodePolyfills} from 'vite-plugin-node-polyfills';
 
 export default defineNuxtConfig({
     devtools: {enabled: false},
@@ -19,11 +18,6 @@ export default defineNuxtConfig({
                 target: process.env.API_PROXY_URL || 'http://localhost:3001',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, '')
-            },
-            '/image': {
-                target: process.env.IMAGE_PROXY_URL,
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/image/, '')
             }
         },
         debug: false
@@ -46,14 +40,7 @@ export default defineNuxtConfig({
             }
         },
         plugins: [
-            nodePolyfills({
-                includes: ['crypto'],
-                globals: {
-                    Buffer: true,
-                    global: true,
-                    process: true
-                }
-            })
+         
         ]
     },
     app: {
